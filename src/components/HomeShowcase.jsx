@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 export default function HomeShowcase() {
   const images = [
-    "src/pages/images/home showcase/download.jpg",
-    "src/pages/images/home showcase/Glerry - Hea Lin Kwon.jpg",
-    "src/pages/images/home showcase/Photo editing.jpg",
-    "src/pages/images/home showcase/Shop All.jpg",
+    "public/home showcase/download.jpg",
+    "public/home showcase/Glerry - Hea Lin Kwon.jpg",
+    "public/home showcase/Photo editing.jpg",
+    "public/home showcase/Shop All.jpg",
   ];
 
   const [current, setCurrent] = useState(0);
