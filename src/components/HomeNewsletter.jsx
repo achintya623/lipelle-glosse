@@ -7,7 +7,7 @@ export default function HomeNewsletter() {
         <div>
           <img
             className="w-80 rounded-2xl h-180 object-cover"
-            src="public\newsletter\download (1).jpg"
+            src="/newsletter/download (1).jpg"
             alt="image"
           />
         </div>
@@ -34,7 +34,7 @@ export default function HomeNewsletter() {
       <div>
         <img
           className="w-80 rounded-2xl h-180 object-cover"
-          src="public\newsletter\download.jpg"
+          src="/newsletter/download.jpg"
           alt="image"
         />
       </div>

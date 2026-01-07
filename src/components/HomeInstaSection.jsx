@@ -13,37 +13,37 @@ export default function HomeInstaSection() {
         <div className="flex flex-row w-[99.2vw] items-center justify-center">
           <img
             className="w-[23vw] h-[33vh] object-cover items-center justify-center"
-            src="public\insta section\3.jpg"
+            src="/insta section/3.jpg"
             alt=""
           />
           <img
             className="w-[11vw] h-[40vh] object-cover items-center justify-center"
-            src="public\insta section\4.jpg"
+            src="/insta section/4.jpg"
             alt=""
           />
           <img
             className="w-[13vw] h-[33vh] object-cover items-center justify-center"
-            src="public\insta section\5.jpg"
+            src="/insta section/5.jpg"
             alt=""
           />
           <img
             className="w-[11vw] h-[40vh] object-cover items-center justify-center"
-            src="public\insta section\6.jpg"
+            src="/insta section/6.jpg"
             alt=""
           />
           <img
             className="w-[13vw] h-[33vh] object-cover items-center justify-center "
-            src="public\insta section\Daniela Braga Poses in Red-Hot Fashions for Harper’s Bazaar – Fashion Gone Rogue.jpg"
+            src="/insta section/Daniela Braga Poses in Red-Hot Fashions for Harper’s Bazaar – Fashion Gone Rogue.jpg"
             alt=""
           />
           <img
             className="w-[10vw] h-[40vh] object-cover items-center justify-center"
-            src="public\insta section\Vale a pena usar cosméticos com efeito Cinderela_.jpg"
+            src="/insta section/Vale a pena usar cosméticos com efeito Cinderela_.jpg"
             alt=""
           />
           <img
             className="w-[23vw] h-[33vh] object-cover items-center justify-center"
-            src="public\insta section\Lábios.jpg"
+            src="/insta section/Lábios.jpg"
             alt=""
           />
         </div>

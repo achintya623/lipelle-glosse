@@ -9,7 +9,7 @@ export default function HomeHeroSection() {
           <div>
             <img
               className="w-100 rounded-2xl h-180 object-cover"
-              src="public\hero\Red haired model on a gradient studio background.jpg"
+              src="/hero/Red haired model on a gradient studio background.jpg"
               alt="image"
             />
           </div>
@@ -17,7 +17,7 @@ export default function HomeHeroSection() {
         <div className="w-120 h-180 flex flex-col pl-10 pr-10 items-center ">
           <img
             className="rounded-2xl h-40 object-cover w-120"
-            src="public\hero\download (1).jpg"
+            src="/hero/download (1).jpg"
             alt=""
           />
           <div className="text-7xl font-poppins h-25 font-semibold mt-5 ">
@@ -43,14 +43,14 @@ export default function HomeHeroSection() {
           </div>
           <img
             className="rounded-2xl h-40 object-cover w-120"
-            src="public\hero\Einfache Anleitung für Smokey Eyes.jpg"
+            src="/hero/Einfache Anleitung für Smokey Eyes.jpg"
             alt=""
           />
         </div>
         <div>
           <img
             className="w-100 rounded-2xl h-180 object-cover"
-            src="public\hero\download.jpg"
+            src="/hero/download.jpg"
             alt="image"
           />
         </div>
