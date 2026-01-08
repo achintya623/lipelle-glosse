@@ -9,7 +9,7 @@ export default function CartProductCard({
 }) {
   return (
     <NavLink to={`/product/${product.id}`} className="group w-full">
-      <div className="h-[26vh] w-[66vw] m-4 flex flex-row  justify-evenly items-center rounded-2xl shadow-2xl font-poppins">
+      <div className="h-[26vh] w-[66vw] m-4 flex flex-row  justify-evenly items-center rounded-2xl shadow-2xl font-poppins transition-all duration-300  hover:-translate-y-1 hover:scale-102 cursor-pointer">
         <div className="w-[18vw] h-[24vh] object-cover overflow-hidden rounded-2xl">
           <img
             src={product.image}
@@ -37,6 +37,7 @@ export default function CartProductCard({
                 e.stopPropagation();
                 decrement(product.id);
               }}
+              className="transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer"
             >
               -
             </button>
@@ -47,6 +48,7 @@ export default function CartProductCard({
                 e.stopPropagation();
                 increment(product.id);
               }}
+              className="transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer"
             >
               +
             </button>
@@ -57,7 +59,7 @@ export default function CartProductCard({
               e.stopPropagation();
               deleteFromCart(product.id);
             }}
-            className="bg-[#ff4646] text-white h-[5vh] w-[6vw] rounded-2xl flex justify-center items-center"
+            className="bg-[#ff4646] text-white h-[5vh] w-[6vw] rounded-2xl flex justify-center items-center transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer"
           >
             Delete
           </div>

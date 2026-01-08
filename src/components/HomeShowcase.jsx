@@ -10,12 +10,15 @@ export default function HomeShowcase() {
   ];
 
   const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState("right");
 
   function nextSlide() {
+    setDirection("right");
     setCurrent((prev) => (prev + 1) % images.length);
   }
 
   function prevSlide() {
+    setDirection("left");
     setCurrent((prev) => (prev - 1 + images.length) % images.length);
   }
 
@@ -34,7 +37,7 @@ export default function HomeShowcase() {
           </div>
           <div className="h-30 w-272 flex justify-center items-center">
             <Link to="/shop">
-              <button className="h-15 w-50 bg-black text-white rounded-2xl">
+              <button className="h-15 w-50 bg-black text-white rounded-2xl transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer">
                 BUY NOW
               </button>
             </Link>
@@ -45,13 +48,13 @@ export default function HomeShowcase() {
           <div className="flex gap-6 mt-16">
             <button
               onClick={prevSlide}
-              className="w-14 h-14 rounded-full bg-black text-white text-xl"
+              className="w-14 h-14 rounded-full bg-black text-white text-xl transition-all duration-300  hover:scale-110 cursor-pointer"
             >
               ᐊ
             </button>
             <button
               onClick={nextSlide}
-              className="w-14 h-14 rounded-full bg-black text-white text-xl"
+              className="w-14 h-14 rounded-full bg-black text-white text-xl transition-all duration-300 hover:scale-110 cursor-pointer"
             >
               ᐅ
             </button>
@@ -60,8 +63,13 @@ export default function HomeShowcase() {
         <div className="flex flex-col w-1/2 items-start justify-start relative">
           <div className="w-[640px] flex justify-end items-center">
             <img
+              key={current}
               src={images[current]}
-              className="w-[520px] h-[650px] object-cover rounded-3xl shadow-xl transition-all duration-500"
+              className={`
+                w-[520px] h-[650px] object-cover rounded-3xl shadow-xl
+                transition-all duration-500 ease-out
+                animate-slide-${direction}
+              `}
               alt="lipstick"
             />
           </div>

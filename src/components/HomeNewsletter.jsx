@@ -13,8 +13,8 @@ export default function HomeNewsletter() {
         </div>
       </div>
       <div className="w-180 h-180 flex flex-col pl-10 pr-10 items-center justify-center ">
-        <div className="h-100 w-120 flex flex-col justify-center items-center">
-          <div className="m-10 shadow-2xl rounded-2xl w-160 h-60">
+        <div className="h-100 w-120 flex flex-col justify-center items-center ">
+          <div className="m-10 shadow-2xl rounded-2xl w-160 h-60 transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer">
             <div className="font-volkhov text-[34px] font-bold pl-10">
               Subscribe To Our Newsletter
             </div>
@@ -26,7 +26,7 @@ export default function HomeNewsletter() {
               mike@ymail.com
             </div>
           </div>
-          <button className="h-15 w-50 bg-black text-white rounded-2xl">
+          <button className="h-15 w-50 bg-black text-white rounded-2xl transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer">
             SUBSCRIBE NOW
           </button>
         </div>

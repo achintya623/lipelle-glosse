@@ -67,7 +67,7 @@ export default function Cart({
                   <div>Total</div>
                   <div>${total}</div>
                 </div>
-                <button className="w-[12vw] h-[5vh] bg-black rounded-lg flex justify-center items-center text-white font-bold">
+                <button className="w-[12vw] h-[5vh] bg-black rounded-lg flex justify-center items-center text-white font-bold transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer">
                   Checkout
                 </button>
               </div>

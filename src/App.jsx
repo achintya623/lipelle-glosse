@@ -97,7 +97,7 @@ export default function App() {
       <nav className="flex flex-row justify-between h-[12vh] items-center pl-80 pr-80">
         <div style={{ padding: "0px 20px" }}>
           <NavLink to="/">
-            <h1 className="font-volkhov text-5xl font-bold uppercase">
+            <h1 className="font-volkhov text-5xl font-bold uppercase transition-all duration-300  hover:-translate-y-1 hover:scale-105">
               Lipelle Glosse
             </h1>
           </NavLink>
@@ -118,8 +118,8 @@ export default function App() {
         px-10 py-2 rounded-3xl transition-all duration-300 text-[16px]
         ${
           isActive
-            ? "bg-black text-white scale-105 shadow-xl"
-            : "text-black hover:scale-105"
+            ? "bg-black text-white transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer"
+            : "text-black transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer"
         }
       `
               }
@@ -191,16 +191,24 @@ export default function App() {
       <div className="w-[98vw] h-[12vh] flex justify-between items-center mt-5 ">
         <div style={{ padding: "0px 20px" }}>
           <NavLink to="/">
-            <h1 className="font-volkhov text-3xl font-bold ml-[15vw] uppercase">
+            <h1 className="font-volkhov text-3xl font-bold ml-[15vw] uppercase transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer">
               Lipelle Glosse
             </h1>
           </NavLink>
         </div>
         <div className="flex w-[50vw] justify-center gap-15 cursor-pointer ">
-          <div>Support center</div>
-          <div>Services</div>
-          <div>Offers</div>
-          <div>FAQ</div>
+          <div className="transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer">
+            Support center
+          </div>
+          <div className="transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer">
+            Services
+          </div>
+          <div className="transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer">
+            Offers
+          </div>
+          <div className="transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer">
+            FAQ
+          </div>
         </div>
       </div>
     </div>

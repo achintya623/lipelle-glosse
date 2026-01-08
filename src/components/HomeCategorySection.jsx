@@ -33,11 +33,11 @@ export default function HomeCategorySection({
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
                   className={`
-                    px-6 py-2 rounded-2xl w-[200px] h-[60px] font-medium transition-all duration-300 text-[20px] font-poppins
+                    px-6 py-2 rounded-2xl w-[200px] h-[60px] font-medium transition-all duration-300 text-[20px] font-poppins cursor-pointer
                     ${
                       isActive
-                        ? "bg-black text-white scale-105 shadow-xl"
-                        : "bg-transparent text-black hover:scale-105"
+                        ? "bg-black text-white transition-all duration-300  hover:-translate-y-1 hover:scale-105 shadow-xl"
+                        : "bg-transparent text-black transition-all duration-300  hover:-translate-y-1 hover:scale-105"
                     }
                 `}
                 >

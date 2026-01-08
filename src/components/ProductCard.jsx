@@ -9,7 +9,7 @@ export default function ProductCard({
 }) {
   return (
     <NavLink to={`/product/${product.id}`} className="group">
-      <div className="h-[45vh] w-[20vw] flex flex-col  justify-evenly items-center rounded-2xl shadow-2xl font-poppins ">
+      <div className="h-[45vh] w-[20vw] flex flex-col  justify-evenly items-center rounded-2xl shadow-2xl font-poppins transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer">
         <div className="w-[18vw] h-[24vh] object-cover overflow-hidden rounded-2xl">
           <img
             src={product.image}
@@ -39,6 +39,7 @@ export default function ProductCard({
                       e.stopPropagation();
                       decrement(product.id);
                     }}
+                    className="transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer"
                   >
                     -
                   </button>
@@ -51,6 +52,7 @@ export default function ProductCard({
                       e.stopPropagation();
                       increment(product.id);
                     }}
+                    className="transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer"
                   >
                     +
                   </button>
@@ -58,7 +60,7 @@ export default function ProductCard({
               ) : (
                 <div>
                   <button
-                    className="bg-[#ff4646] text-white h-[5vh] w-[6vw] rounded-2xl cursor-pointer"
+                    className="bg-[#ff4646] text-white h-[5vh] w-[6vw] rounded-2xl cursor-pointer transition-all duration-300  hover:-translate-y-1 hover:scale-105 "
                     onClick={(e) => {
                       e.preventDefault();
                       e.stopPropagation();

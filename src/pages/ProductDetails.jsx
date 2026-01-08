@@ -38,20 +38,30 @@ export default function ProductDetails({
           <div className="w-full flex gap-10">
             {product.added ? (
               <div className="flex gap-6 text-xl items-center w-40.5 justify-center">
-                <button onClick={() => decrement(product.id)}>-</button>
+                <button
+                  onClick={() => decrement(product.id)}
+                  className="transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer"
+                >
+                  -
+                </button>
                 {product.quantity}
-                <button onClick={() => increment(product.id)}>+</button>
+                <button
+                  onClick={() => increment(product.id)}
+                  className="transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer"
+                >
+                  +
+                </button>
               </div>
             ) : (
               <button
                 onClick={() => addToCart(product.id)}
-                className="bg-[#ff4646] text-white px-10 py-3 rounded-xl w-fit"
+                className="bg-[#ff4646] text-white px-10 py-3 rounded-xl w-fit transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer"
               >
                 Add to Cart
               </button>
             )}
             <button
-              className="bg-black text-white  rounded-xl w-fit px-11 py-3"
+              className="bg-black text-white  rounded-xl w-fit px-11 py-3 transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer"
               onClick={() => buyNow(product.id)}
             >
               BUY NOW

@@ -34,9 +34,9 @@ export default function HomeHeroSection() {
           <div className="text-2xl h-15 w-120 flex justify-center items-center ">
             NEW COLLECTION
           </div>
-          <div className="h-30 w-120 flex justify-center items-center">
+          <div className="h-30 w-120 flex justify-center items-center ">
             <Link to="/shop">
-              <button className="h-15 w-50 bg-black text-white rounded-2xl">
+              <button className="h-15 w-50 bg-black text-white rounded-2xl cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:scale-105">
                 SHOP NOW
               </button>
             </Link>

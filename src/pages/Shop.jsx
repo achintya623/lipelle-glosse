@@ -18,7 +18,7 @@ export default function Shop({ products, addToCart, decrement, increment }) {
 
   return (
     <div>
-      <div className="flex justify-start my-8 pl-10 font-poppins">
+      <div className="flex justify-start my-8 pl-10 font-poppins transition-all duration-300  hover:-translate-y-1 ">
         <div className="relative w-[380px]">
           <span className="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-400">
             🔎︎
@@ -51,11 +51,11 @@ export default function Shop({ products, addToCart, decrement, increment }) {
                 return (
                   <button
                     className={`
-                    px-2 py-2 rounded-2xl w-25 h-10 font-medium transition-all duration-300 text-[15px] font-poppins
+                    px-2 py-2 rounded-2xl w-25 h-10 font-medium transition-all duration-300 text-[15px] font-poppins cursor-pointer
                     ${
                       isActive
-                        ? "bg-black text-white scale-105 shadow-xl"
-                        : "bg-transparent text-black hover:scale-105"
+                        ? "bg-black text-white scale-105 shadow-xl transition-all duration-300  hover:-translate-y-1 hover:scale-105"
+                        : "bg-transparent text-black transition-all duration-300  hover:-translate-y-1 hover:scale-105"
                     }
                 `}
                     key={cat}
