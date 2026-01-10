@@ -33,7 +33,7 @@ export default function HomeShowcase() {
 
   return (
     <section className="w-full min-h-screen flex flex-col lg:flex-row items-center justify-center px-6 lg:px-10 py-20 gap-12">
-      <div className="flex flex-col w-full lg:w-1/2 text-center lg:text-left items-center lg:items-start lg:pl-30 4k:pl-170 ">
+      <div className="flex flex-col w-full lg:w-1/2 text-center lg:text-left items-center lg:items-start lg:pl-90 4k:pl-170 ">
         <h1 className="font-volkhov text-3xl sm:text-4xl lg:text-5xl max-w-xl">
           Luxury Lips. Limitless Confidence
         </h1>
@@ -69,7 +69,7 @@ export default function HomeShowcase() {
           </button>
         </div>
       </div>
-      <div className="w-full lg:w-1/2 flex justify-center lg:pr-20 4k:pr-170">
+      <div className="w-full lg:w-1/2 flex justify-center lg:pr-70 4k:pr-170">
         <div className="relative w-[260px] sm:w-[340px] lg:w-[460px] h-[360px] sm:h-[480px] lg:h-[620px] overflow-hidden rounded-3xl shadow-xl">
           <div className="relative w-[260px] sm:w-[340px] lg:w-[460px] h-[360px] sm:h-[480px] lg:h-[620px] overflow-hidden rounded-3xl shadow-xl">
             {images.map((img, index) => (
