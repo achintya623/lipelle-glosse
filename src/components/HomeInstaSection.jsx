@@ -18,8 +18,8 @@ export default function HomeInstaSection() {
             className="
       flex items-center justify-center
       scale-[0.45]
-      sm:scale-[0.65]
-      md:scale-[0.8]
+      xs:scale-[0.52]
+      sm:scale-[0.85]
       lg:scale-100
       transition-transform duration-300
       origin-center
