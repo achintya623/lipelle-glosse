@@ -8,70 +8,73 @@ export default function ProductCard({
   decrement,
 }) {
   return (
-    <NavLink to={`/product/${product.id}`} className="group">
-      <div className="h-[45vh] w-[20vw] flex flex-col  justify-evenly items-center rounded-2xl shadow-2xl font-poppins transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer">
-        <div className="w-[18vw] h-[24vh] object-cover overflow-hidden rounded-2xl">
+    <NavLink to={`/product/${product.id}`} className="">
+      <div className="w-full  bg-white flex flex-col justify-between rounded-2xl shadow-xl font-poppins transition-all duration-300 hover:-translate-y-1 hover:scale-105">
+        {/* IMAGE */}
+        <div className="w-full h-[220px] sm:h-[240px] overflow-hidden rounded-t-2xl">
           <img
             src={product.image}
-            alt="image"
-            className="object-cover w-[18vw]"
+            alt={product.name}
+            className="w-full h-full object-cover"
           />
         </div>
-        <div className="flex flex-row justify-between w-[17vw] h-[17vh]">
-          <div className="flex flex-col justify-between">
-            <div>
-              <div className="text-2xl font-bold text-zinc-950">
-                {product.category} {product.shade}
-              </div>
-              <div className="text-[14px]">{product.name}</div>
-            </div>
-            <div className="text-[14px]">Stock: {product.stock}</div>
-            <div className="text-2xl font-medium mb-3">${product.price}</div>
+
+        {/* CONTENT */}
+        <div className="p-4 flex flex-col justify-between h-full">
+          <div>
+            <h3 className="text-lg sm:text-xl font-bold text-zinc-950">
+              {product.category} {product.shade}
+            </h3>
+            <p className="text-sm text-gray-600">{product.name}</p>
           </div>
-          <div className="flex flex-col justify-between w-[5vw] items-center ">
-            <div className="text-[20px] pt-4">★{product.rating}</div>
-            <div>
-              {product.added ? (
-                <div className="flex mb-3 text-[20px] gap-6 cursor-pointer">
-                  <button
-                    onClick={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      decrement(product.id);
-                    }}
-                    className="transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer"
-                  >
-                    -
-                  </button>
-                  <div className="w-2.5 flex justify-center cursor-pointer">
-                    {product.quantity}
-                  </div>
-                  <button
-                    onClick={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      increment(product.id);
-                    }}
-                    className="transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer"
-                  >
-                    +
-                  </button>
-                </div>
-              ) : (
-                <div>
-                  <button
-                    className="bg-[#ff4646] text-white h-[5vh] w-[6vw] rounded-2xl cursor-pointer transition-all duration-300  hover:-translate-y-1 hover:scale-105 "
-                    onClick={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      addToCart(product.id);
-                    }}
-                  >
-                    Add to cart
-                  </button>
-                </div>
-              )}
-            </div>
+
+          <div className="text-sm text-gray-500 mt-1">
+            Stock: {product.stock}
+          </div>
+
+          <div className="flex justify-between items-center mt-3">
+            <span className="text-xl font-semibold">${product.price}</span>
+            <span className="text-sm">★ {product.rating}</span>
+          </div>
+
+          {/* CART CONTROLS */}
+          <div className="mt-4 flex justify-center">
+            {product.added ? (
+              <div className="flex items-center gap-4 text-lg">
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    decrement(product.id);
+                  }}
+                  className="hover:scale-110 transition"
+                >
+                  −
+                </button>
+                <span>{product.quantity}</span>
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    increment(product.id);
+                  }}
+                  className="hover:scale-110 transition"
+                >
+                  +
+                </button>
+              </div>
+            ) : (
+              <button
+                className="bg-[#ff4646] text-white px-6 py-2 rounded-xl text-sm hover:bg-[#b63636] transition"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  addToCart(product.id);
+                }}
+              >
+                Add to cart
+              </button>
+            )}
           </div>
         </div>
       </div>

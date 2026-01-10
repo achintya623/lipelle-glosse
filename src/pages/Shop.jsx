@@ -17,9 +17,10 @@ export default function Shop({ products, addToCart, decrement, increment }) {
   });
 
   return (
-    <div>
-      <div className="flex justify-start my-8 pl-10 font-poppins transition-all duration-300  hover:-translate-y-1 ">
-        <div className="relative w-[380px]">
+    <div className="max-w-7xl mx-auto px-4 sm:px-8">
+      {/* SEARCH */}
+      <div className="flex justify-center sm:justify-start my-8 font-poppins">
+        <div className="relative w-full sm:w-[380px]">
           <span className="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-400">
             🔎︎
           </span>
@@ -29,48 +30,53 @@ export default function Shop({ products, addToCart, decrement, increment }) {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="
-        w-full pl-10 py-3 rounded-2xl border border-neutral-300
-        text-sm tracking-wide outline-none
-        focus:border-black focus:ring-1 focus:ring-black
-        transition-all duration-300
-        placeholder:text-neutral-400
-      "
+              w-full pl-10 py-3 rounded-2xl border border-neutral-300
+              text-sm tracking-wide outline-none
+              focus:border-black focus:ring-1 focus:ring-black
+              transition-all duration-300 placeholder:text-neutral-400
+            "
           />
         </div>
       </div>
 
-      <div className="flex">
-        <div className="w-[15vw] flex flex-col justify-start h-[50vh]">
-          <div className="items-center flex justify-center mt-10 font-volkhov text-2xl">
+      {/* LAYOUT */}
+      <div className="flex flex-col md:flex-row gap-10">
+        {/* FILTERS */}
+        <aside className="w-full md:w-48 shrink-0">
+          <h3 className="text-center md:text-left font-volkhov text-xl mb-6">
             Shade
-          </div>
-          <div className="w-[15vw] flex flex-row justify-center h-[30vh] p-10">
-            <div className="grid grid-cols-2 items-start w-[15vw]">
-              {["ALL", "Matte", "Gloss", "Cream", "Liquid"].map((cat) => {
-                const isActive = selectedCategory === cat;
-                return (
-                  <button
-                    className={`
-                    px-2 py-2 rounded-2xl w-25 h-10 font-medium transition-all duration-300 text-[15px] font-poppins cursor-pointer
+          </h3>
+
+          <div className="grid grid-cols-3 md:grid-cols-2 gap-4">
+            {["ALL", "Matte", "Gloss", "Cream", "Liquid"].map((cat) => {
+              const isActive = selectedCategory === cat;
+
+              return (
+                <button
+                  key={cat}
+                  onClick={() => setSelectedCategory(cat)}
+                  className={`
+                    px-3 py-2 rounded-2xl text-sm font-medium transition-all duration-300
                     ${
                       isActive
-                        ? "bg-black text-white scale-105 shadow-xl transition-all duration-300  hover:-translate-y-1 hover:scale-105"
-                        : "bg-transparent text-black transition-all duration-300  hover:-translate-y-1 hover:scale-105"
+                        ? "bg-black text-white scale-105 shadow-lg"
+                        : "bg-transparent text-black hover:scale-105"
                     }
-                `}
-                    key={cat}
-                    onClick={() => setSelectedCategory(cat)}
-                  >
-                    {cat}
-                  </button>
-                );
-              })}
-            </div>
+                  `}
+                >
+                  {cat}
+                </button>
+              );
+            })}
           </div>
-        </div>
-        <div className="w-[82vw] flex flex-row justify-start pl-10">
-          <div className="grid grid-cols-3 gap-4 w-[65vw] items-center">
-            {visibleProducts.length === 0 && <p>No products found</p>}
+        </aside>
+
+        {/* PRODUCTS GRID */}
+        <section className="flex-1">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {visibleProducts.length === 0 && (
+              <p className="text-center col-span-full">No products found</p>
+            )}
 
             {visibleProducts.map((product) => (
               <ProductCard
@@ -82,7 +88,7 @@ export default function Shop({ products, addToCart, decrement, increment }) {
               />
             ))}
           </div>
-        </div>
+        </section>
       </div>
     </div>
   );

@@ -9,60 +9,59 @@ export default function HomeCategorySection({
 }) {
   const [selectedCategory, setSelectedCategory] = useState("Gloss");
 
-  const visibleProducts = products.filter((product) => {
-    const matchesCategory = product.category === selectedCategory;
+  const visibleProducts = products.filter(
+    (product) => product.category === selectedCategory
+  );
 
-    return matchesCategory;
-  });
   return (
-    <div>
-      <div className="flex flex-col w-[98vw] h-[152vh] justify-start items-start pt-10">
-        <div className="font-poppins text-6xl w-[98vw] font-bold h-25 flex items-center justify-center">
-          New Arrivals
-        </div>
-        <div className="font-poppins text-4xl h-25 w-[98vw] font-medium flex items-center justify-center mt-5 mb-5">
-          Where real beauty meets timeless luxury
-        </div>
-        <div className="flex flex-col">
-          <div className="flex flex-row w-[98vw] justify-center gap-10 p-5">
-            {["Matte", "Gloss", "Cream", "Liquid"].map((cat) => {
-              const isActive = selectedCategory === cat;
+    <section className="w-full flex flex-col items-center py-16 px-6">
+      {/* HEADINGS */}
+      <h2 className="font-poppins text-3xl sm:text-4xl lg:text-5xl font-bold text-center">
+        New Arrivals
+      </h2>
 
-              return (
-                <button
-                  key={cat}
-                  onClick={() => setSelectedCategory(cat)}
-                  className={`
-                    px-6 py-2 rounded-2xl w-[200px] h-[60px] font-medium transition-all duration-300 text-[20px] font-poppins cursor-pointer
-                    ${
-                      isActive
-                        ? "bg-black text-white transition-all duration-300  hover:-translate-y-1 hover:scale-105 shadow-xl"
-                        : "bg-transparent text-black transition-all duration-300  hover:-translate-y-1 hover:scale-105"
-                    }
-                `}
-                >
-                  {cat}
-                </button>
-              );
-            })}
-          </div>
-          <div className="flex justify-center w-[98vw]">
-            <div className="grid grid-cols-3 gap-10 w-[65vw] items-center ">
-              {visibleProducts.length === 0 && <p>No products found</p>}
+      <p className="font-poppins text-lg sm:text-xl lg:text-2xl text-center mt-4 mb-10 max-w-xl">
+        Where real beauty meets timeless luxury
+      </p>
 
-              {visibleProducts.map((product) => (
-                <ProductCard
-                  key={product.id}
-                  product={product}
-                  addToCart={addToCart}
-                  decrement={decrement}
-                  increment={increment}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
+      {/* CATEGORY BUTTONS */}
+      <div className="flex flex-wrap justify-center gap-4 mb-12">
+        {["Matte", "Gloss", "Cream", "Liquid"].map((cat) => {
+          const isActive = selectedCategory === cat;
+
+          return (
+            <button
+              key={cat}
+              onClick={() => setSelectedCategory(cat)}
+              className={`px-6 py-2 rounded-2xl min-w-[120px] transition-all duration-300 font-poppins text-sm sm:text-base
+                ${
+                  isActive
+                    ? "bg-black text-white scale-105 shadow-lg"
+                    : "bg-transparent text-black border border-black hover:scale-105"
+                }`}
+            >
+              {cat}
+            </button>
+          );
+        })}
       </div>
-    </div>
+
+      {/* PRODUCT GRID */}
+      <div className="w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {visibleProducts.length === 0 && (
+          <p className="text-center col-span-full">No products found</p>
+        )}
+
+        {visibleProducts.map((product) => (
+          <ProductCard
+            key={product.id}
+            product={product}
+            addToCart={addToCart}
+            decrement={decrement}
+            increment={increment}
+          />
+        ))}
+      </div>
+    </section>
   );
 }

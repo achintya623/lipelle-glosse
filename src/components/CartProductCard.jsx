@@ -9,60 +9,69 @@ export default function CartProductCard({
 }) {
   return (
     <NavLink to={`/product/${product.id}`} className="group w-full">
-      <div className="h-[26vh] w-[66vw] m-4 flex flex-row  justify-evenly items-center rounded-2xl shadow-2xl font-poppins transition-all duration-300  hover:-translate-y-1 hover:scale-102 cursor-pointer">
-        <div className="w-[18vw] h-[24vh] object-cover overflow-hidden rounded-2xl">
+      <div
+        className="w-full max-w-3xl bg-white rounded-2xl shadow-xl p-4 sm:p-6 mb-6
+        flex flex-col sm:flex-row items-center gap-6 transition-all duration-300 hover:scale-[1.02]"
+      >
+        {/* IMAGE */}
+        <div className="w-full sm:w-[140px] h-[180px] sm:h-[160px] overflow-hidden rounded-xl flex-shrink-0">
           <img
             src={product.image}
-            alt="image"
-            className="w-[18vw] object-cover "
+            alt={product.name}
+            className="w-full h-full object-cover"
           />
         </div>
-        <div className="flex flex-row justify-between w-[40vw] h-[17vh] items-center">
-          <div>
-            <div className="flex flex-col justify-between">
-              <div>
-                <div className="text-2xl font-bold text-zinc-950">
-                  {product.category} {product.shade}
-                </div>
-                <div className="text-[14px]">{product.name}</div>
-              </div>
-              <div className="text-[14px]">Stock: {product.stock}</div>
-            </div>
-          </div>
-          <div className="text-2xl font-medium ">${product.price}</div>
-          <div className="flex text-[20px] gap-6 items-center">
+
+        {/* INFO */}
+        <div className="flex-1 flex flex-col gap-2 text-center sm:text-left">
+          <h3 className="text-lg font-bold">
+            {product.category} {product.shade}
+          </h3>
+          <p className="text-sm text-gray-600">{product.name}</p>
+          <p className="text-sm">Stock: {product.stock}</p>
+          <p className="text-lg font-semibold">${product.price}</p>
+        </div>
+
+        {/* ACTIONS */}
+        <div className="flex sm:flex-col items-center gap-4">
+          {/* QUANTITY */}
+          <div className="flex items-center gap-4 text-lg">
             <button
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 decrement(product.id);
               }}
-              className="transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer"
+              className="hover:scale-110 transition"
             >
-              -
+              −
             </button>
-            <div className="w-2.5 flex justify-center">{product.quantity}</div>
+
+            <span>{product.quantity}</span>
+
             <button
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 increment(product.id);
               }}
-              className="transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer"
+              className="hover:scale-110 transition"
             >
               +
             </button>
           </div>
-          <div
+
+          {/* DELETE */}
+          <button
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
               deleteFromCart(product.id);
             }}
-            className="bg-[#ff4646] text-white h-[5vh] w-[6vw] rounded-2xl flex justify-center items-center transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer"
+            className="px-4 py-2 bg-red-500 text-white rounded-lg text-sm hover:bg-red-600 transition"
           >
             Delete
-          </div>
+          </button>
         </div>
       </div>
     </NavLink>

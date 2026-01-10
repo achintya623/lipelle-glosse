@@ -94,15 +94,15 @@ export default function App() {
 
   return (
     <div className="h-screen">
-      <nav className="flex flex-row justify-between h-[12vh] items-center pl-80 pr-80">
-        <div style={{ padding: "0px 20px" }}>
+      <nav className="flex items-center justify-between px-3 sm:px-8 lg:px-32 h-16 sm:h-20">
+        <div>
           <NavLink to="/">
-            <h1 className="font-volkhov text-5xl font-bold uppercase transition-all duration-300  hover:-translate-y-1 hover:scale-105">
+            <h1 className="font-volkhov text-base xs:text-[16px] sm:text-2xl md:text-3xl lg:text-5xl font-bold uppercase transition-all duration-300  hover:-translate-y-1 hover:scale-105">
               Lipelle Glosse
             </h1>
           </NavLink>
         </div>
-        <div className="w-2xs flex justify-around text-base font-poppins text-neutral-900">
+        <div className="flex  sm:gap-4 text-[12px] sm:text-sm font-poppins xs:text-[12px]">
           {[
             { path: "/shop", label: "Shop" },
             {
@@ -115,7 +115,7 @@ export default function App() {
               to={item.path}
               className={({ isActive }) =>
                 `
-        px-10 py-2 rounded-3xl transition-all duration-300 text-[16px]
+        px-3 sm:px-6 py-1 sm:py-1 rounded-xl sm:rounded-3xl transition-all duration-300 text-[16px]
         ${
           isActive
             ? "bg-black text-white transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer"
@@ -188,29 +188,28 @@ export default function App() {
           />
         </Routes>
       </div>
-      <div className="w-[98vw] h-[12vh] flex justify-between items-center mt-5 ">
-        <div style={{ padding: "0px 20px" }}>
+      <footer className="w-full border-t mt-10 py-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+          {/* Brand */}
           <NavLink to="/">
-            <h1 className="font-volkhov text-3xl font-bold ml-[15vw] uppercase transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer">
+            <h1 className="font-volkhov text-xl sm:text-2xl lg:text-3xl font-bold uppercase transition-all duration-300 hover:-translate-y-1 hover:scale-105">
               Lipelle Glosse
             </h1>
           </NavLink>
-        </div>
-        <div className="flex w-[50vw] justify-center gap-15 cursor-pointer ">
-          <div className="transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer">
-            Support center
-          </div>
-          <div className="transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer">
-            Services
-          </div>
-          <div className="transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer">
-            Offers
-          </div>
-          <div className="transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer">
-            FAQ
+
+          {/* Links */}
+          <div className="flex flex-wrap justify-center gap-6 sm:gap-10 text-sm sm:text-base font-poppins">
+            {["Support center", "Services", "Offers", "FAQ"].map((item) => (
+              <span
+                key={item}
+                className="cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:scale-105"
+              >
+                {item}
+              </span>
+            ))}
           </div>
         </div>
-      </div>
+      </footer>
     </div>
   );
 }

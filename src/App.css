@@ -39,3 +39,8 @@
 .animate-slide-left {
   animation: slide-left 0.45s ease-out;
 }
+
+@theme {
+  --breakpoint-xs: 20rem;
+  --breakpoint-4k: 160rem;
+}

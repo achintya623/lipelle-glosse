@@ -14,40 +14,47 @@ export default function ProductDetails({
     return <div className="text-center text-2xl mt-20">Product not found</div>;
 
   return (
-    <div className="flex justify-center items-center min-h-[76vh]">
-      <div className="w-[70vw] flex gap-16">
-        <img
-          src={product.image}
-          alt="image"
-          className="w-[350px] h-[450px] object-cover rounded-3xl shadow-xl"
-        />
+    <div className="flex justify-center items-center min-h-[76vh] px-4 sm:px-8">
+      <div className="w-full max-w-5xl flex flex-col lg:flex-row gap-10">
+        {/* IMAGE */}
+        <div className="flex justify-center">
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-[260px] sm:w-[320px] lg:w-[380px] h-[360px] sm:h-[420px] lg:h-[480px] object-cover rounded-3xl shadow-xl"
+          />
+        </div>
 
-        <div className="flex flex-col justify-evenly">
+        {/* DETAILS */}
+        <div className="flex flex-col justify-evenly gap-6 text-center lg:text-left">
           <div>
-            <h1 className="text-5xl font-volkhov">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-volkhov">
               {product.category} {product.shade}
             </h1>
-            <p className="text-lg text-gray-600 mt-2">{product.name}</p>
+            <p className="text-gray-600 mt-2">{product.name}</p>
           </div>
 
           <div className="text-2xl font-bold">${product.price}</div>
-          <p className="w-[30vw]">{product.description}</p>
+
+          <p className="w-full text-sm sm:text-base">{product.description}</p>
+
           <div>★ {product.rating}</div>
           <div>Stock: {product.stock}</div>
 
-          <div className="w-full flex gap-10">
+          {/* ACTIONS */}
+          <div className="flex flex-col sm:flex-row gap-6 items-center sm:items-start justify-center lg:justify-start">
             {product.added ? (
-              <div className="flex gap-6 text-xl items-center w-40.5 justify-center">
+              <div className="flex gap-6 text-xl items-center">
                 <button
                   onClick={() => decrement(product.id)}
-                  className="transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer"
+                  className="hover:scale-110 transition"
                 >
-                  -
+                  −
                 </button>
                 {product.quantity}
                 <button
                   onClick={() => increment(product.id)}
-                  className="transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer"
+                  className="hover:scale-110 transition"
                 >
                   +
                 </button>
@@ -55,13 +62,14 @@ export default function ProductDetails({
             ) : (
               <button
                 onClick={() => addToCart(product.id)}
-                className="bg-[#ff4646] text-white px-10 py-3 rounded-xl w-fit transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer"
+                className="bg-[#ff4646] text-white px-8 py-3 rounded-xl transition hover:scale-105"
               >
                 Add to Cart
               </button>
             )}
+
             <button
-              className="bg-black text-white  rounded-xl w-fit px-11 py-3 transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer"
+              className="bg-black text-white px-8 py-3 rounded-xl transition hover:scale-105"
               onClick={() => buyNow(product.id)}
             >
               BUY NOW

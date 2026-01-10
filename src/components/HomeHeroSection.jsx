@@ -3,58 +3,49 @@ import { Link } from "react-router-dom";
 
 export default function HomeHeroSection() {
   return (
-    <div>
-      <div className="flex flex-row w-[98vw] h-screen justify-center pt-10">
-        <div>
-          <div>
-            <img
-              className="w-100 rounded-2xl h-180 object-cover"
-              src="/hero/Red haired model on a gradient studio background.jpg"
-              alt="image"
-            />
-          </div>
+    <div className="flex flex-col lg:flex-row w-full min-h-screen items-center justify-center gap-6 px-4 sm:px-8 pt-10 lg:px-10 box-border ">
+      <img
+        className="w-full sm:w-[300px] lg:w-[300px] h-[260px] sm:h-[420px] lg:h-[700px] rounded-2xl object-cover"
+        src="/hero/Red haired model on a gradient studio background.jpg"
+        alt="model"
+      />
+      <div className="w-full lg:w-[500px] flex flex-col items-center text-center gap-6">
+        <img
+          className="w-full max-w-[420px] h-[140px] sm:h-[180px] lg:h-[135px] rounded-2xl object-cover"
+          src="/hero/download (1).jpg"
+          alt="product"
+        />
+
+        <div className="text-4xl sm:text-5xl lg:text-7xl font-poppins font-semibold">
+          ULTIMATE
         </div>
-        <div className="w-120 h-180 flex flex-col pl-10 pr-10 items-center ">
-          <img
-            className="rounded-2xl h-40 object-cover w-120"
-            src="/hero/download (1).jpg"
-            alt=""
-          />
-          <div className="text-7xl font-poppins h-25 font-semibold mt-5 ">
-            ULTIMATE
-          </div>
-          <div className="flex flex-col leading-30 items-start  justify-start p-0 m-0">
-            <span
-              className="text-[150px] font-poppins  text-white  font-semibold p-0 m-0"
-              style={{ WebkitTextStroke: "0.01em black" }}
-            >
-              SALE
-            </span>
-          </div>
-          <div className="text-2xl h-15 w-120 flex justify-center items-center ">
-            NEW COLLECTION
-          </div>
-          <div className="h-30 w-120 flex justify-center items-center ">
-            <Link to="/shop">
-              <button className="h-15 w-50 bg-black text-white rounded-2xl cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:scale-105">
-                SHOP NOW
-              </button>
-            </Link>
-          </div>
-          <img
-            className="rounded-2xl h-40 object-cover w-120"
-            src="/hero/Einfache Anleitung für Smokey Eyes.jpg"
-            alt=""
-          />
-        </div>
-        <div>
-          <img
-            className="w-100 rounded-2xl h-180 object-cover"
-            src="/hero/download.jpg"
-            alt="image"
-          />
-        </div>
+
+        <span
+          className="text-[72px] sm:text-[110px] lg:text-[150px] font-poppins text-white font-semibold leading-none"
+          style={{ WebkitTextStroke: "0.01em black" }}
+        >
+          SALE
+        </span>
+
+        <div className="text-lg sm:text-xl lg:text-2xl">NEW COLLECTION</div>
+
+        <Link to="/shop">
+          <button className="px-8 py-3 sm:px-10 sm:py-4 text-sm sm:text-base lg:text-lg bg-black text-white rounded-2xl transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:scale-105">
+            SHOP NOW
+          </button>
+        </Link>
+
+        <img
+          className="w-full max-w-[420px] h-[140px] sm:h-[180px] lg:h-[135px] rounded-2xl object-cover"
+          src="/hero/Einfache Anleitung für Smokey Eyes.jpg"
+          alt="makeup"
+        />
       </div>
+      <img
+        className="w-full sm:w-[300px] lg:w-[300px] h-[260px] sm:h-[420px] lg:h-[700px] rounded-2xl object-cover"
+        src="/hero/download.jpg"
+        alt="lipstick"
+      />
     </div>
   );
 }

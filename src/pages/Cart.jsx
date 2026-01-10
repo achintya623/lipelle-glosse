@@ -1,11 +1,8 @@
 import React from "react";
 import CartProductCard from "../components/CartProductCard";
-import { Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Cart({
-  products,
-  cart,
-  setCart,
   cartItems,
   increment,
   decrement,
@@ -18,23 +15,21 @@ export default function Cart({
   const total = subtotal + tax;
 
   return (
-    <div className="w-[98vw] min-h-[76vh] ">
+    <div className="max-w-7xl mx-auto px-4 sm:px-8 min-h-[76vh]">
       {cartItems.length === 0 ? (
-        <div className="flex flex-col justify-center items-center min-h-[76vh]">
-          <div className="flex justify-center items-center text-2xl">
-            Your cart is empty
-          </div>
-          <div className="h-30 w-120 flex justify-center items-center">
-            <Link to="/shop">
-              <button className="h-15 w-50 bg-black text-white rounded-2xl">
-                SHOP NOW
-              </button>
-            </Link>
-          </div>
+        <div className="flex flex-col justify-center items-center min-h-[76vh] text-center">
+          <div className="text-xl sm:text-2xl">Your cart is empty</div>
+
+          <Link to="/shop">
+            <button className="mt-6 px-10 py-3 bg-black text-white rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:scale-105">
+              SHOP NOW
+            </button>
+          </Link>
         </div>
       ) : (
-        <div className="flex justify-between pt-[5vh]">
-          <div className="w-[80vw] flex flex-col justify-start items-end">
+        <div className="flex flex-col lg:flex-row gap-12 pt-10">
+          {/* CART ITEMS */}
+          <div className="flex-1 flex flex-col items-center lg:items-end">
             {cartItems.map((product) => (
               <CartProductCard
                 key={product.id}
@@ -45,32 +40,32 @@ export default function Cart({
               />
             ))}
           </div>
-          <div className="w-[30vw] h-[50vh] flex flex-col justify-evenly items-center ">
-            <div className=" w-[20vw] h-[45vh] border-gray-400 border rounded-lg flex flex-col justify-evenly items-center p-8">
-              <div className="h-full flex flex-col justify-evenly w-[12vw]">
-                <div className="text-black text-[20px] font-bold">
-                  Order Summary
-                </div>
-                <div className="flex justify-between text-2xl font-bold">
-                  <div>${total}</div>
-                </div>
-                <div className="flex justify-between">
-                  <div>Subtotal ({totalCartItem} items)</div>
-                  <div>${totalCartPrice}</div>
-                </div>
-                <div className="flex justify-between">
-                  <div>Tax (20%)</div>
-                  <div>${tax}</div>
-                </div>
-                <div className="w-[12vw] bg-gray-400 h-px"></div>
-                <div className="flex justify-between text-[20px] font-bold">
-                  <div>Total</div>
-                  <div>${total}</div>
-                </div>
-                <button className="w-[12vw] h-[5vh] bg-black rounded-lg flex justify-center items-center text-white font-bold transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer">
-                  Checkout
-                </button>
+
+          {/* SUMMARY */}
+          <div className="w-full lg:w-[350px] flex justify-center">
+            <div className="w-full border border-gray-300 rounded-xl p-6 flex flex-col gap-4">
+              <h2 className="text-xl font-bold">Order Summary</h2>
+
+              <div className="flex justify-between">
+                <span>Subtotal ({totalCartItem} items)</span>
+                <span>${subtotal}</span>
               </div>
+
+              <div className="flex justify-between">
+                <span>Tax (20%)</span>
+                <span>${tax}</span>
+              </div>
+
+              <div className="h-px bg-gray-300 my-2"></div>
+
+              <div className="flex justify-between text-lg font-bold">
+                <span>Total</span>
+                <span>${total}</span>
+              </div>
+
+              <button className="mt-4 w-full py-3 bg-black text-white rounded-xl transition-all duration-300 hover:-translate-y-1 hover:scale-105">
+                Checkout
+              </button>
             </div>
           </div>
         </div>

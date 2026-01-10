@@ -10,71 +10,82 @@ export default function HomeShowcase() {
   ];
 
   const [current, setCurrent] = useState(0);
+  const [animate, setAnimate] = useState(false);
   const [direction, setDirection] = useState("right");
 
   function nextSlide() {
     setDirection("right");
-    setCurrent((prev) => (prev + 1) % images.length);
+    setAnimate(true);
+    setTimeout(() => {
+      setCurrent((prev) => (prev + 1) % images.length);
+      setAnimate(false);
+    }, 300);
   }
 
   function prevSlide() {
     setDirection("left");
-    setCurrent((prev) => (prev - 1 + images.length) % images.length);
+    setAnimate(true);
+    setTimeout(() => {
+      setCurrent((prev) => (prev - 1 + images.length) % images.length);
+      setAnimate(false);
+    }, 300);
   }
 
   return (
-    <div>
-      <div className="flex flex-row w-[98vw] h-[90vh] justify-center pt-10">
-        <div className="flex flex-col w-1/2 items-end ">
-          <div className=" w-160 font-volkhov text-5xl">
-            Luxury Lips. Limitless Confidence
-          </div>
-          <div className=" w-160.5 pt-10 pb-10 font-poppins text-1xl">
-            From soft everyday nudes to bold statement reds, Lipelle Glosse is
-            crafted to elevate your beauty routine. Each lipstick is enriched
-            with hydrating pigments that deliver long-lasting color without
-            drying your lips.
-          </div>
-          <div className="h-30 w-272 flex justify-center items-center">
-            <Link to="/shop">
-              <button className="h-15 w-50 bg-black text-white rounded-2xl transition-all duration-300  hover:-translate-y-1 hover:scale-105 cursor-pointer">
-                BUY NOW
-              </button>
-            </Link>
-          </div>
-          <div className=" w-162 font-volkhov text-4xl pt-10">
-            Discover shades designed to empower your every mood
-          </div>
-          <div className="flex gap-6 mt-16">
-            <button
-              onClick={prevSlide}
-              className="w-14 h-14 rounded-full bg-black text-white text-xl transition-all duration-300  hover:scale-110 cursor-pointer"
-            >
-              ᐊ
-            </button>
-            <button
-              onClick={nextSlide}
-              className="w-14 h-14 rounded-full bg-black text-white text-xl transition-all duration-300 hover:scale-110 cursor-pointer"
-            >
-              ᐅ
-            </button>
-          </div>
+    <section className="w-full min-h-screen flex flex-col lg:flex-row items-center justify-center px-6 lg:px-10 py-20 gap-12">
+      <div className="flex flex-col w-full lg:w-1/2 text-center lg:text-left items-center lg:items-start lg:pl-30 4k:pl-170 ">
+        <h1 className="font-volkhov text-3xl sm:text-4xl lg:text-5xl max-w-xl">
+          Luxury Lips. Limitless Confidence
+        </h1>
+
+        <p className="mt-6 text-sm sm:text-base lg:text-lg font-poppins text-gray-600 max-w-xl">
+          From soft everyday nudes to bold statement reds, Lipelle Glosse is
+          crafted to elevate your beauty routine with hydrating pigments and
+          long-lasting color.
+        </p>
+
+        <Link to="/shop">
+          <button className="mt-8 px-10 py-3 bg-black text-white rounded-2xl transition-all duration-300 hover:scale-105">
+            BUY NOW
+          </button>
+        </Link>
+
+        <p className="mt-10 font-volkhov text-xl sm:text-2xl max-w-lg">
+          Discover shades designed to empower your every mood
+        </p>
+
+        <div className="flex gap-6 mt-10">
+          <button
+            onClick={prevSlide}
+            className="w-12 h-12 rounded-full bg-black text-white text-lg hover:scale-110 transition"
+          >
+            ᐊ
+          </button>
+          <button
+            onClick={nextSlide}
+            className="w-12 h-12 rounded-full bg-black text-white text-lg hover:scale-110 transition"
+          >
+            ᐅ
+          </button>
         </div>
-        <div className="flex flex-col w-1/2 items-start justify-start relative">
-          <div className="w-[640px] flex justify-end items-center">
-            <img
-              key={current}
-              src={images[current]}
-              className={`
-                w-[520px] h-[650px] object-cover rounded-3xl shadow-xl
-                transition-all duration-500 ease-out
-                animate-slide-${direction}
-              `}
-              alt="lipstick"
-            />
+      </div>
+      <div className="w-full lg:w-1/2 flex justify-center lg:pr-20 4k:pr-170">
+        <div className="relative w-[260px] sm:w-[340px] lg:w-[460px] h-[360px] sm:h-[480px] lg:h-[620px] overflow-hidden rounded-3xl shadow-xl">
+          <div className="relative w-[260px] sm:w-[340px] lg:w-[460px] h-[360px] sm:h-[480px] lg:h-[620px] overflow-hidden rounded-3xl shadow-xl">
+            {images.map((img, index) => (
+              <img
+                key={index}
+                src={img}
+                className={`
+        absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out
+        ${index === current ? "opacity-100 z-10" : "opacity-0"}
+      `}
+                alt="lipstick"
+              />
+            ))}
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
