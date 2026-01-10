@@ -13,12 +13,12 @@ export default function HomeInstaSection() {
         </p>
 
         {/* IMAGE STRIP */}
-        <div className="w-full flex justify-center overflow-hidden">
+        <div className="w-full flex justify-center overflow-hidden items-center">
           <div
             className="
       flex items-center justify-center
       scale-[0.45]
-      xs:scale-[0.52]
+      xs:scale-[0.9]
       sm:scale-[0.85]
       lg:scale-100
       transition-transform duration-300
